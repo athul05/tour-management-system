@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PHPJabbers.com | Free Travel Website Template</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css'%}" />
+    <noscript
+      ><link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="inner">
+          <!-- Logo -->
+          <a href="{{ home }}" class="logo">
+            <span class="fa fa-plane"></span>
+            <span class="title">Travel Agency Website</span>
+          </a>
+
+          <!-- Nav -->
+          <nav>
+            <ul>
+              <li><a href="#menu">Menu</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="{{home}}">Home</a></li>
+
+          <li><a href="{{home}}" class="active">Packages</a></li>
+
+          <li><a href="blog.html">Blog</a></li>
+
+          <li>
+            <a href="#" class="dropdown-toggle">About</a>
+
+            <ul>
+              <li><a href="about">About Us</a></li>
+              <li><a href="testimonials">Testimonials</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <h1>Packages</h1>
+
+          <div class="image main">
+            <img
+              src="{% static 'images/banner-image-7-1920x500.jpg'%}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+
+          <!-- Packages -->
+          <section class="tiles">
+          {% for dest in dests %}
+          <article class="style1">
+                        <span class="image">
+										<img src="{{dest.img.url}}" alt="" />
+									</span>
+                        <a href="package_details">
+                            <h2>{{dest.name}}</h2>
+
+                            <p><strong>${{dest.prize1}}-{{dest.prize2}} </strong></p>
+
+                            <p>
+                                <small>
+		                                    <i class="fa fa-calendar"></i> {{dest.season}} &nbsp;
+		                                    <i class="fa fa-cube"></i> {{dest.duration}} nights &nbsp;
+                                            {% if dest.food %}
+		                                    <i class="fa fa-plane"></i> Food and Accomodation Included
+                                            {% else %}
+                                            <i class="fa fa-plane"></i> No Food and Accomodation
+                                            {% endif %}
+		                                    </small>
+                            </p>
+                        </a>
+                    </article>
+                    {% endfor %}
+          </section>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <section>
+            <ul class="icons">
+              <li>
+                <a href="#" class="icon style2 fa-twitter"
+                  ><span class="label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon style2 fa-facebook"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon style2 fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon style2 fa-linkedin"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+            </ul>
+
+            &nbsp;
+          </section>
+
+          <ul class="copyright">
+            <li>Copyright © 2020 Company Name</li>
+            <li>
+              Template by:
+              <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'assets/js/jquery.scrolly.min.js'%}"></script>
+    <script src="{% static 'assets/js/jquery.scrollex.min.js'%}"></script>
+    <script src="{% static 'assets/js/main.js'%}"></script>
+  </body>
+</html>
