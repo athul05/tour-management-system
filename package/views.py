@@ -21,7 +21,8 @@ def testim(request):
 def about(request):
     return render(request, "about.html")
 
-
+def checkout(request):
+    return render(request, "checkout.html")
 
 
 

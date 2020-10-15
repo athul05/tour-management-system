@@ -76,30 +76,29 @@
 
           <!-- Packages -->
           <section class="tiles">
-          {% for dest in dests %}
-          <article class="style1">
-                        <span class="image">
-										<img src="{{dest.img.url}}" alt="" />
-									</span>
-                        <a href="package_details">
-                            <h2>{{dest.name}}</h2>
+            {% for dest in dests %}
+            <article class="style1">
+              <span class="image">
+                <img src="{{dest.img.url}}" alt="" />
+              </span>
+              <a href="package_details">
+                <h2>{{dest.name}}</h2>
 
-                            <p><strong>${{dest.prize1}}-{{dest.prize2}} </strong></p>
+                <p><strong>${{dest.prize1}}-{{dest.prize2}} </strong></p>
 
-                            <p>
-                                <small>
-		                                    <i class="fa fa-calendar"></i> {{dest.season}} &nbsp;
-		                                    <i class="fa fa-cube"></i> {{dest.duration}} nights &nbsp;
-                                            {% if dest.food %}
-		                                    <i class="fa fa-plane"></i> Food and Accomodation Included
-                                            {% else %}
-                                            <i class="fa fa-plane"></i> No Food and Accomodation
-                                            {% endif %}
-		                                    </small>
-                            </p>
-                        </a>
-                    </article>
-                    {% endfor %}
+                <p>
+                  <small>
+                    <i class="fa fa-calendar"></i> {{dest.season}} &nbsp;
+                    <i class="fa fa-cube"></i> {{dest.duration}} nights &nbsp;
+                    {% if dest.food %} <i class="fa fa-plane"></i> Food and
+                    Accomodation Included {% else %}
+                    <i class="fa fa-plane"></i> No Food and Accomodation {%endif
+                    %}
+                  </small>
+                </p>
+              </a>
+            </article>
+            {% endfor %}
           </section>
         </div>
       </div>
