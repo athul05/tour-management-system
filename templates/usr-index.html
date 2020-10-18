@@ -22,7 +22,7 @@
 
                     <!-- Logo -->
                     <a href="usr" class="logo">
-                        <span class="fa fa-plane"></span> <span class="title">Travel Bug</span>
+                        <span class="brand-logo"> <img src="{% static 'images/travellogo.png'%}" alt=""></span> <span class="title">Travel Bug</span>
                     </a>
 
                     <!-- Nav -->
@@ -55,6 +55,13 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Hey {{user.first_name}}</a>
+
+                        <ul>
+                            <li><a href="logout">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 

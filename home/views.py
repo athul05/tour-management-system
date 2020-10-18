@@ -22,10 +22,29 @@ def register(request):
         else:
             user =User.objects.create_user(username=username,first_name=first_name,email=email,password=password)
             user.save()
-            messages.info(request, 'Thanks for creating account with us ! . Sign-In to your account to continue')
-            return redirect('join')
+            return render(request,"thanks.html")
+
     else:
         return render(request, "join.html")
 
 def join(request):
     return render(request, "join.html")
+
+def login(request):
+    if request.method == 'POST':
+        username=request.POST['username']
+        password=request.POST['password']
+
+        user =auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect ("usr")
+        else:
+            messages.info(request, 'Oops!.Incorrect Credentials. Try again')
+            return redirect('join')
+    else:
+        return redirect('join')
+            
+
+def signin(request):
+    return redirect('join')

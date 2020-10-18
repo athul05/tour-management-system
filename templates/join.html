@@ -29,8 +29,8 @@
                     {% csrf_token %}
                     <h1>Sign-In</h1>
                     <span>sign in with your email id</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="text" name="username" placeholder="Username" />
+                    <input type="password" name="password" placeholder="Password" />
                     <a href="#">Forgot your password?</a>
                     <button>Sign In</button>
                 </form>
@@ -52,16 +52,9 @@
         </div>
         <div>
             {% for message in messages %}
-                {% if "Thanks" in messages %}
-            <div class="success">
-                <h2> {{message}}</h2>
-            </div>
-                {% else %}
             <div class="error">
                 <h2> {{message}}</h2>
             </div>
-                {% endif %}
-
             {% endfor %}
         </div>
 

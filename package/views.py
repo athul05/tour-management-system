@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Destination
 from .forms import CheckoutForm
+from django.contrib.auth.models import User,auth
 
 # Create your views here.
 def usr(request):
@@ -26,6 +27,9 @@ def about(request):
 def checkout(request):
     return render(request, "checkout.html")
 
+def logout (request):
+    auth.logout(request)
+    return redirect('/')
 
 
     

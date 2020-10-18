@@ -9,5 +9,6 @@ path('usr/testimonial/',views.testim,name='testimonial'),
 path('usr/about/',views.about,name='about'),
 path ('usr/package_details/checkout/',views.checkout,name='checkout'),
 path ('usr/packages/checkout/',views.checkout,name='checkout'),
-path ('usr/packages/package_details/checkout/',views.checkout,name='checkout')
+path ('usr/packages/package_details/checkout/',views.checkout,name='checkout'),
+path ('usr/logout', views.logout,name='checkout')
 ]

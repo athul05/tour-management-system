@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thanks</title>
+        <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/thanks.css'%}">
+    </head>
+
+    <body class="container full-height-grow">
+        <header class="travel-header">
+            <a href="/" class="brand-logo">
+                <img src="{% static 'images/travellogo.png'%}" alt="">
+
+                <div class="brand-logo-name">Travel Bug</div>
+            </a>
+            <nav class="travel-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="thanks-main-section">
+            <img src="{% static 'images/happylowres.png'%}" class="thanks-wrapper">
+            <div class="call-to-action">
+                <h1 class="title">Thanks for joining the team fellow traveller !</h1>
+                <span class="subtitle">Sign into your new account to start the journey</span>
+                <a href="signin" class="join-btn">Sign In</a>
+            </div>
+        </section>
+        <div class="circle-thanks-1"></div>
+        <div class="circle-thanks-2"></div>
+        <div class="circle-thanks-3"></div>
+    </body>
+
+</html>
