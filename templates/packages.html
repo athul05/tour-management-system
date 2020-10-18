@@ -1,22 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>PHPJabbers.com | Free Travel Website Template</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/css/main.css'%}" />
-    <noscript
-      ><link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}"
-    /></noscript>
+    <noscript>
+      <link rel="stylesheet" href="{% static 'assets/css/noscript.css'%}" /></noscript>
   </head>
+
+
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
@@ -67,11 +63,7 @@
           <h1>Packages</h1>
 
           <div class="image main">
-            <img
-              src="{% static 'images/banner-image-7-1920x500.jpg'%}"
-              class="img-fluid"
-              alt=""
-            />
+            <img src="{% static 'images/banner-image-7-1920x500.jpg'%}" class="img-fluid" alt="" />
           </div>
 
           <!-- Packages -->
@@ -90,10 +82,11 @@
                   <small>
                     <i class="fa fa-calendar"></i> {{dest.season}} &nbsp;
                     <i class="fa fa-cube"></i> {{dest.duration}} nights &nbsp;
-                    {% if dest.food %} <i class="fa fa-plane"></i> Food and
-                    Accomodation Included {% else %}
-                    <i class="fa fa-plane"></i> No Food and Accomodation {%endif
-                    %}
+                    {% if dest.food %}
+                    <i class="fa fa-plane"></i> Food andAccomodation Included
+                    {% else %}
+                    <i class="fa fa-plane"></i> No Food and Accomodation
+                    {%endif%}
                   </small>
                 </p>
               </a>
@@ -109,24 +102,16 @@
           <section>
             <ul class="icons">
               <li>
-                <a href="#" class="icon style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
+                <a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a>
               </li>
               <li>
-                <a href="#" class="icon style2 fa-facebook"
-                  ><span class="label">Facebook</span></a
-                >
+                <a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a>
               </li>
               <li>
-                <a href="#" class="icon style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
+                <a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a>
               </li>
               <li>
-                <a href="#" class="icon style2 fa-linkedin"
-                  ><span class="label">LinkedIn</span></a
-                >
+                <a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a>
               </li>
             </ul>
 
@@ -151,4 +136,5 @@
     <script src="{% static 'assets/js/jquery.scrollex.min.js'%}"></script>
     <script src="{% static 'assets/js/main.js'%}"></script>
   </body>
+
 </html>

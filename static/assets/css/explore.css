@@ -1,0 +1,67 @@
+.explore-main-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding-top: 70px;
+}
+
+.explore-main-section .explore-img {
+    width: 30vw;
+    margin-left: 2rem;
+    height: auto;
+    max-width: 400px;
+}
+
+.explore-main-section .call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    margin: 6.5rem;
+}
+
+.explore-btn {
+    color: white;
+    background-color: #9C29E2;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    align-self: center;
+}
+
+.circle-explore-1 {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: rgba(88, 25, 99, .15);
+    bottom: -45vw;
+    left: 1vw;
+    z-index: -1;
+}
+
+.circle-explore-2 {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: rgba(102, 178, 178, 0.1);
+    bottom: -25vw;
+    left: 30vw;
+    
+    z-index: -1;
+}
+
+.circle-explore-3 {
+    position: absolute;
+    overflow: hidden;
+    width: 20vw;
+    height: 20vw;
+    bottom: -40vw;
+    right: 0;
+    z-index: -1;
+        border-radius: 50%;
+    background-color: rgba(88, 25, 99, .15);
+}

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Bug</title>
+        <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/index.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/explore.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/contact.css'%}">
+    </head>
+
+    <body class="full-height-grow">
+        <div class="container">
+            <header class="travel-header">
+                <a href="/" class="brand-logo">
+                    <img src="{% static 'images/logo.png'%}" alt="">
+                    <div class="brand-logo-name">Travel Bug</div>
+                </a>
+                <nav class="travel-nav">
+                    <ul>
+                        <li><a href="#explore">Explore</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href=# id="join-button1">Join</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="home-main-section">
+                <img src="{% static 'images/Hiker2.png'%}" class="img-wrapper">
+                <div class="call-to-action">
+                    <h1 class="title">Adventure awaits, go find it !</h1>
+                    <span class="subtitle">Join our reputed tours & travels and let us guide you to your next
+                        adventure</span>
+                    <a href="join" class="join-btn">Join Now</a>
+                </div>
+            </section>
+            <div class="circle-home-1"></div>
+            <div class="circle-home-2"></div>
+            <div class="circle-home-3"></div>
+
+            <section class="explore-main-section" id="explore">
+                <img class="explore-img" src="{% static 'images/Explorenew.png'%}">
+                <div class="call-to-action">
+                    <h1 class="title">Explore the incredible India</h1>
+                    <span class="subtitle">Explore india like you have never before with our professional travel guides
+                        and
+                        well
+                        renowned travels.. We have been giving the best get away experience for people all around India
+                        for
+                        the past
+                        10 years. Let us make your trip a memorable one</span>
+                    <a href="package/usr" class="explore-btn">Explore</a>
+                </div>
+            </section>
+            <div class="circle-explore-1"></div>
+            <div class="circle-explore-2"></div>
+            <div class="circle-explore-3"></div>
+
+            <!--Join Form-->
+        </div>
+        <section class="contact-main-section" id="contact">
+            <div class="call-to-action">
+                <div class="support-text">
+                    <h1>24x7
+                        <span class="support-color"> Customer</span> Support</h1>
+                </div>
+                <span class="subtitle">We provide 24x7 support for our beloved customers. Our well trained customer care
+                    representatives will be there to assist you in every step of your way if you face any issues with
+                    our
+                    service</span>
+                <a href="feedback.html" class="explore-btn">Contact Us</a>
+            </div>
+            <div class="vector-wrapper"></div>
+            <div class="vector-img"></div>
+        </section>
+        <div class="circle-contact-1"></div>
+        <div class="circle-contact-2"></div>
+        <div class="circle-contact-3"></div>
+        </div>
+        <footer class="contact-footer">
+            <div class="container">
+                <nav class="footer-nav">
+                    <ul>
+                        <li>
+                            <a href="/index.html" class="social">
+                                <img src="{% static 'images/copyright.svg'%}"> Travel Bug
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <ul>
+                        <li>
+                            <a href="#" class="social">
+                                <img src="{% static 'images/facebook.svg'%}"> facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social">
+                                <img src="{% static 'images/instagram.svg'%}"> Instagram
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </body>
+
+</html>

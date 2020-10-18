@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #2F303A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    min-height: 100vmin;
+}
+
+
+
+.full-height-grow {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.travel-nav ul,
+.footer-nav ul {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.travel-nav a,
+.footer-nav a {
+    color: inherit;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.travel-nav a:hover,
+.footer-nav a:hover {
+    color: grey;
+}
+
+.travel-header,
+.contact-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.travel-header {
+
+    height: 100px;
+}
+
+.social img {
+    width: 1em;
+    margin-right: 0.1rem;
+}
+
+.contact-footer {
+    height: 70px;
+    background-color: black;
+}
+
+.contact-footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 30px;
+    flex-grow: 1;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 0rem;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.join-btn {
+    color: white;
+    background-color: #9C29E2;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+}
