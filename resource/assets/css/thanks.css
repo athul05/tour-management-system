@@ -1,0 +1,83 @@
+.thanks-main-section {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-grow: 1;
+
+}
+
+.thanks-main-section .thanks-wrapper {
+     width: 30vw;
+    margin-left: 2rem;
+    height: 70vh;
+    max-width: 600px;
+}
+
+.thanks-main-section .hiker-img {
+    max-height: 70vh;
+    min-width: 30vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom left;
+    flex-grow: 1;
+}
+
+.thanks-main-section .call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    margin-right: 4rem;
+    padding: 0;
+}
+
+@media (max-width: 900px) {
+    .thanks-main-section .thanks-wrapper {
+        display: none;
+    }
+    .thanks-main-section {
+        justify-content: center;
+    }
+}
+
+.circle-thanks-1 {
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: rgba(102, 178, 178, 0.1);
+    bottom: 5vw;
+    left: 5vw;
+    z-index: -1;
+}
+
+.circle-thanks-2 {
+    position: absolute;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: rgba(88, 25, 99, .15);
+    top: 15vh;
+    left: 40vw;
+    z-index: -1;
+}
+
+.circle-thanks-3 {
+    position: absolute;
+    overflow: hidden;
+    width: 20vw;
+    height: 20vw;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.circle-thanks-3::before {
+    content: '';
+    transform: translate(40%, 40%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(102, 178, 178, 0.1);
+}

@@ -49,7 +49,7 @@
                         <a href="#" class="dropdown-toggle">About</a>
 
                         <ul>
-                            <li><a href="about">About Us</a></li>
+                            <li><a href="about" >About Us</a></li>
                             <li><a href="testimonial">Testimonials</a></li>
                             <li><a href="terms.html">Terms</a></li>
                         </ul>
@@ -119,14 +119,14 @@
                     <section class="tiles">
 
                         {% for dest in dests %}
-                        <article class="style1">
+                        <article class="{{dest.style}}">
                             <span class="image">
                                 <img src="{{dest.img.url}}" alt="" />
                             </span>
                             <a href="package_details">
                                 <h2>{{dest.name}}</h2>
-
-                                <p><strong>${{dest.prize1}}-{{dest.prize2}} </strong></p>
+                            <a href="{% url 'package_details' oid=dest.id %} ">
+                                <p><strong>₹{{dest.car}} - ₹{{dest.bus}} </strong></p>
 
                                 <p>
                                     <small>
@@ -144,74 +144,36 @@
                         {% endfor %}
                     </section>
 
-                    <p class="text-center"><a href="packages">View Packages &nbsp;<i
-                                class="fa fa-long-arrow-right"></i></a></p>
-
                     <br>
 
                     <h2 class="h2">Testimonials</h2>
 
                     <div class="row">
+                        {% for test in tests %}
                         <div class="col-sm-6 text-center">
-                            <p class="m-n"><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus
-                                    mollitia, debitis architecto recusandae? Quidem ipsa, quo, labore minima enim
-                                    similique, delectus ullam non laboriosam laborum distinctio repellat quas deserunt
-                                    voluptas reprehenderit dignissimos voluptatum deleniti saepe. Facere expedita autem
-                                    quos."</em></p>
+                            <p class="m-n"><em>"{{test.review}}"</em></p>
 
-                            <p><strong> - John Doe</strong></p>
+                            <p><strong> - {{test.name}}</strong></p>
                         </div>
-
-                        <div class="col-sm-6 text-center">
-                            <p class="m-n"><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt delectus
-                                    mollitia, debitis architecto recusandae? Quidem ipsa, quo, labore minima enim
-                                    similique, delectus ullam non laboriosam laborum distinctio repellat quas deserunt
-                                    voluptas reprehenderit dignissimos voluptatum deleniti saepe. Facere expedita autem
-                                    quos."</em></p>
-
-                            <p><strong>- John Doe</strong> </p>
-                        </div>
+                        {% endfor  %}
                     </div>
-
-                    <p class="text-center"><a href="testimonial">Read More &nbsp;<i
-                                class="fa fa-long-arrow-right"></i></a></p>
 
                     <br>
 
                     <h2 class="h2">Blog</h2>
 
                     <div class="row">
+                        {% for blog in blogs %}
                         <div class="col-sm-4 text-center">
-                            <img src="{% static 'images/blog-1-720x480.jpg' %}" class="img-fluid" alt="" />
+                            <img src="{{blog.img.url}}" class="img-fluid" alt="" />
 
-                            <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                            <h2 class="m-n"><a href="{{blog.url}}" target="_blank">{{blog.title}}</a>
                             </h2>
 
-                            <p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
+                            <p>{{blog.author}}</p>
                         </div>
-
-                        <div class="col-sm-4 text-center">
-                            <img src="{% static 'images/blog-2-720x480.jpg' %}" class="img-fluid" alt="" />
-
-                            <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                            </h2>
-
-                            <p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                        </div>
-
-                        <div class="col-sm-4 text-center">
-                            <img src="{% static 'images/blog-3-720x480.jpg' %}" class="img-fluid" alt="" />
-
-                            <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
-                            </h2>
-
-                            <p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
-                        </div>
+                        {% endfor %}
                     </div>
-
-                    <p class="text-center"><a href="blog.html">Read More &nbsp;<i
-                                class="fa fa-long-arrow-right"></i></a></p>
-
 
                 </div>
             </div>
@@ -221,7 +183,7 @@
                 <div class="inner">
                     <section>
                         <h2>Contact Us</h2>
-                        <form method="post" action="#">
+                        <form method="post" action="contact">
                             <div class="fields">
                                 <div class="field half">
                                     <input type="text" name="name" id="name" placeholder="Name" />
@@ -253,10 +215,9 @@
                         <h2>Contact Info</h2>
 
                         <ul class="alt">
-                            <li><span class="fa fa-envelope-o"></span> <a href="#">contact@company.com</a></li>
-                            <li><span class="fa fa-phone"></span> +1 333 4040 5566 </li>
-                            <li><span class="fa fa-map-pin"></span> 212 Barrington Court New York, ABC 10001 United
-                                States of America</li>
+                            <li><span class="fa fa-envelope-o"></span> <a href="#">travelbug@gmail.com</a></li>
+                            <li><span class="fa fa-phone"></span> +91 9998885554 </li>
+                            <li><span class="fa fa-map-pin"></span>Building 07, Kalamassery, Near scms school of technology and management</li>
                         </ul>
 
                         <h2>Follow Us</h2>

@@ -60,8 +60,8 @@
       <div id="main">
         <div class="inner">
           <h1>
-            Lorem ipsum dolor sit amet consectetur
-            <span class="pull-right">€300 - €4000</span>
+            {{dest.name}}
+            <span class="pull-right">₹{{dest.car}} - ₹{{dest.bus}}</span>
           </h1>
 
           <div class="container-fluid">
@@ -107,9 +107,13 @@
                 <h3>Package Info:</h3>
 
                 <p>
-                  - Available: Spring <br />
-                  - 20 nights <br />
-                  - Flight included <br />
+                  - Available: {{dest.season}} <br />
+                  - {{dest.duration}} nights <br />
+                  {% if dest.food %}
+                  -  Food and Accomodation Included <br />
+                  {% else %}
+                  -  No Food and Accomodation <br />
+                  {% endif  %}
                   - 6 Regeneration Road, SE16 2NX, London
                 </p>
 
@@ -127,98 +131,70 @@
             <h3>Description</h3>
 
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatum officiis est repellendus molestias blanditiis, id, aut
-              veritatis cumque odit aliquid odio sed. Consequuntur accusantium,
-              placeat ipsum dolores. Quo, debitis provident.
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum
-              vitae laborum ipsa sit illum voluptas dicta, amet dolor maxime
-              earum recusandae provident totam optio labore, aliquid non in
-              quas. Veritatis laborum dicta itaque obcaecati, dolores repellat
-              adipisci eum voluptates autem, praesentium a assumenda doloribus
-              quae. Obcaecati impedit expedita accusantium, magni.
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-              assumenda mollitia officiis maxime sit facere debitis quaerat
-              alias consequatur harum adipisci esse quidem dicta veniam, eveniet
-              neque vitae eius! Fugit, sapiente. Consequuntur eveniet odit
-              cumque necessitatibus aliquid, magnam sequi earum alias, dolorem
-              exercitationem. Quia, eius soluta assumenda ducimus impedit iste
-              obcaecati nobis, esse facere ut sequi, nemo! Repellat, amet, in!
+            {{dest.description}}
             </p>
 
             <br />
 
             <h3>Availability &amp; Prices</h3>
-            <form >
-              {% csrf_token %}
               <div class="table-responsive">
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
                   <thead>
                     <tr>
                       <th>Package</th>
-                      <th>From</th>
-                      <th>To</th>
+                      <th>Season</th>
+                      <th>Duration</th>
                       <th>Price</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>
-                        <input type="radio" id="car" name="vehicle" value="car" />
-                        <label for="car">4 People car</label>
+                        4 People car
                       </td>
                       <td>
-                        <input type="date" id="carstrt" min="2020-01-01" max="2020-07-31" />
+                        {{dest.season}}
                       </td>
-                      <td>31-12-2020</td>
-                      <td>€ 300 per night</td>
+                      <td>{{dest.duration}} Nights</td>
+                      <td>₹ {{dest.car}}</td>
                     </tr>
 
                     <tr>
                       <td>
-                        <input type="radio" id="van" name="vehicle" value="van" />
-                        <label for="van">12 People - Mini Van</label>
+                        12 People Mini-Van
                       </td>
                       <td>
-                        <input type="date" id="vanstrt" min="2020-01-01" max="2020-07-31" />
+                        {{dest.season}}
                       </td>
-                      <td>31-12-2020</td>
-                      <td>€ 300 per night</td>
+                      <td>{{dest.duration}} Nights
+                      </td>
+                      <td>₹ {{dest.van}}</td>
                     </tr>
 
                     <tr>
                       <td>
-                        <input type="radio" id="trav" name="vehicle" value="trav" />
-                        <label for="trav">24 People - Traveller</label>
+                        24 People - Traveller
                       </td>
                       <td>
-                        <input type="date" id="travstrt" min="2020-01-01" max="2020-07-31" />
+                        {{dest.season}}
                       </td>
-                      <td>31-12-2020</td>
-                      <td>€ 300 per night</td>
+                      <td>{{dest.duration}} Nights</td>
+                      <td>₹ {{dest.trav}}</td>
                     </tr>
                     <tr>
                       <td>
-                        <input type="radio" id="air" name="vehicle" value="air" />
-                        <label for="air">42 People - Air Bus</label>
+                        42 People - Air Bus
                       </td>
                       <td>
-                        <input type="date" id="airstrt" min="2020-01-01" max="2020-07-31" />
+                        {{dest.season}}
                       </td>
-                      <td>31-12-2020</td>
-                      <td>€ 4000 total price</td>
+                      <td>{{dest.duration}} Nights</td>
+                      <td>₹ {{dest.bus}}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <a href="checkout" class="button primary scrolly">Checkout</a>
-            </form>
+              <a href="{% url 'checkout' oid=dest.id %}" class="button primary scrolly">Pre-Book</a>
 
             <br />
 

@@ -31,6 +31,14 @@ ol, ul {
 	list-style: none;
 }
 
+.brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+}
+
 blockquote, q {
 	quotes: none;
 }
@@ -93,7 +101,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		background: #2F303A;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -110,7 +118,7 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
-		color: #585858;
+		color: #ffffff;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
@@ -2370,7 +2378,7 @@ input, select, textarea {
 	}
 
 		table tbody tr {
-			border: solid 1px #c9c9c9;
+			border: solid 1px black;
 			border-left: 0;
 			border-right: 0;
 		}
@@ -3151,7 +3159,7 @@ input, select, textarea {
 
 	#footer {
 		padding: 5em 0 2em 0 ;
-		background-color: #f6f6f6;
+		background-color: #2F303A;
 	}
 
 		#footer > .inner {
