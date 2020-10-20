@@ -24,3 +24,12 @@ class Blog(models.Model):
     url = models.CharField(max_length=200)
     img= models.ImageField(upload_to='imgs')
     author = models.CharField(max_length=100)
+
+class Booking(models.Model):
+    place = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    number= models.CharField(max_length=10)
+    package= models.CharField(max_length=50)
+    package_prize = models.IntegerField()
+    date = models.DateField()
+

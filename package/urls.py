@@ -10,5 +10,6 @@ path('usr/about/',views.about,name='about'),
 path ('usr/package_details/checkout/<int:oid>',views.checkout,name='checkout'),
 path ('usr/packages/checkout/<int:oid>',views.checkout,name='checkout'),
 path ('usr/packages/package_details/checkout/<int:oid>',views.checkout,name='checkout'),
+path ('usr/packages/package_details/checkout/pay',views.checkout,name='checkout'),
 path ('usr/logout', views.logout,name='checkout')
 ]
