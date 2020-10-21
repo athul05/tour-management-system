@@ -3,7 +3,7 @@
 <html>
 
   <head>
-    <title>PHPJabbers.com | Free Travel Website Template</title>
+    <title>Travel Bug</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}" />
@@ -20,10 +20,12 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{{ home }}" class="logo">
-            <span class="fa fa-plane"></span>
-            <span class="title">Travel Agency Website</span>
+          <a href="#" class="logo">
+            <span class="brand-logo"> <img src="{% static 'images/travellogo.png'%}" alt=""></span> <span
+              class="title">Travel
+              Bug</span>
           </a>
+
 
           <!-- Nav -->
           <nav>
@@ -38,22 +40,19 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{{home}}">Home</a></li>
+          <li><a href="index">Home</a></li>
 
-          <li><a href="{{home}}" class="active">Packages</a></li>
-
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index" class="active">Packages</a></li>
 
           <li>
             <a href="#" class="dropdown-toggle">About</a>
 
             <ul>
               <li><a href="about">About Us</a></li>
-              <li><a href="testimonials">Testimonials</a></li>
               <li><a href="terms.html">Terms</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
         </ul>
       </nav>
 

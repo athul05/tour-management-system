@@ -32,9 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'package.apps.PackageConfig',
-    'django.contrib.admin',
+    'material.admin',
+    'material.admin.default',
     'django.contrib.auth',
+    'package.apps.PackageConfig',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -104,6 +105,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+MATERIAL_ADMIN_SITE = {
+    'HEADER':  'Travel Bug Administration',
+    'TITLE': 'TravelBug',
+    'SHOW_THEMES':  True,
+    'SHOW_COUNTS': True,
+}
 
 
 # Internationalization

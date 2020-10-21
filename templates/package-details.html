@@ -1,9 +1,17 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
 
   <head>
-    <title>PHPJabbers.com | Free Travel Website Template</title>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <title>Package Details</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}" />
@@ -19,10 +27,12 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="" class="logo">
-            <span class="fa fa-plane"></span>
-            <span class="title">Travel Bug</span>
+          <a href="index" class="logo">
+            <span class="brand-logo"> <img src="{% static 'images/travellogo.png'%}" alt=""></span> <span
+              class="title">Travel
+              Bug</span>
           </a>
+
 
           <!-- Nav -->
           <nav>
@@ -37,22 +47,25 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{{ home }}">Home</a></li>
+          <li><a href="index">Home</a></li>
 
-          <li><a href="packages.html" class="active">Packages</a></li>
-
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index" class="active">Packages</a></li>
 
           <li>
             <a href="#" class="dropdown-toggle">About</a>
 
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li><a href="terms.html">Terms</a></li>
+              <li><a href="about">About Us</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          <li>
+            <a href="#" class="dropdown-toggle">Hey {{user.first_name}}</a>
+
+            <ul>
+              <li><a href="logout">Logout</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
@@ -77,19 +90,24 @@
                   </ol>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="{% static 'images/product-1-720x480.jpg'%}" alt="First slide" />
+                      <img class="d-block w-100" src={{dest.banner1.url}}
+                        alt="{% static 'images/product-1-720x480.jpg'%}" />
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'images/product-2-720x480.jpg'%}" alt="Second slide" />
+                      <img class="d-block w-100" src={{dest.banner2.url}}
+                        alt="{% static 'images/product-2-720x480.jpg'%}" />
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'images/product-3-720x480.jpg'%}" alt="Third slide" />
+                      <img class="d-block w-100" src={{dest.banner3.url}}
+                        alt="{% static 'images/product-3-720x480.jpg'%}" />
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'images/product-4-720x480.jpg'%}" alt="Fourth slide" />
+                      <img class="d-block w-100" src={{dest.banner4.url}}
+                        alt="{% static 'images/product-4-720x480.jpg'%}" />
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'images/product-5-720x480.jpg'%}" alt="Fifth slide" />
+                      <img class="d-block w-100" src={{dest.banner5.url}}
+                        alt="{% static 'images/product-5-720x480.jpg'%}" />
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -110,11 +128,10 @@
                   - Available: {{dest.season}} <br />
                   - {{dest.duration}} nights <br />
                   {% if dest.food %}
-                  -  Food and Accomodation Included <br />
+                  - Food and Accomodation Included <br />
                   {% else %}
-                  -  No Food and Accomodation <br />
+                  - No Food and Accomodation <br />
                   {% endif  %}
-                  - 6 Regeneration Road, SE16 2NX, London
                 </p>
 
                 <span class="image main"><img src="{% static 'images/map.jpg'%}" alt="" /></span>
@@ -131,70 +148,70 @@
             <h3>Description</h3>
 
             <p>
-            {{dest.description}}
+              {{dest.description}}
             </p>
 
             <br />
 
             <h3>Availability &amp; Prices</h3>
-              <div class="table-responsive">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-                  <thead>
-                    <tr>
-                      <th>Package</th>
-                      <th>Season</th>
-                      <th>Duration</th>
-                      <th>Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        4 People car
-                      </td>
-                      <td>
-                        {{dest.season}}
-                      </td>
-                      <td>{{dest.duration}} Nights</td>
-                      <td>₹ {{dest.car}}</td>
-                    </tr>
+            <div class="table-responsive">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Season</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      4 People car
+                    </td>
+                    <td>
+                      {{dest.season}}
+                    </td>
+                    <td>{{dest.duration}} Nights</td>
+                    <td>₹ {{dest.car}}</td>
+                  </tr>
 
-                    <tr>
-                      <td>
-                        12 People Mini-Van
-                      </td>
-                      <td>
-                        {{dest.season}}
-                      </td>
-                      <td>{{dest.duration}} Nights
-                      </td>
-                      <td>₹ {{dest.van}}</td>
-                    </tr>
+                  <tr>
+                    <td>
+                      12 People Mini-Van
+                    </td>
+                    <td>
+                      {{dest.season}}
+                    </td>
+                    <td>{{dest.duration}} Nights
+                    </td>
+                    <td>₹ {{dest.van}}</td>
+                  </tr>
 
-                    <tr>
-                      <td>
-                        24 People - Traveller
-                      </td>
-                      <td>
-                        {{dest.season}}
-                      </td>
-                      <td>{{dest.duration}} Nights</td>
-                      <td>₹ {{dest.trav}}</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        42 People - Air Bus
-                      </td>
-                      <td>
-                        {{dest.season}}
-                      </td>
-                      <td>{{dest.duration}} Nights</td>
-                      <td>₹ {{dest.bus}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <a href="{% url 'checkout' oid=dest.id %}" class="button primary scrolly">Pre-Book</a>
+                  <tr>
+                    <td>
+                      24 People - Traveller
+                    </td>
+                    <td>
+                      {{dest.season}}
+                    </td>
+                    <td>{{dest.duration}} Nights</td>
+                    <td>₹ {{dest.trav}}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      42 People - Air Bus
+                    </td>
+                    <td>
+                      {{dest.season}}
+                    </td>
+                    <td>{{dest.duration}} Nights</td>
+                    <td>₹ {{dest.bus}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="{% url 'checkout' oid=dest.id %}" class="button primary scrolly">Pre-Book</a>
 
             <br />
 
@@ -210,10 +227,9 @@
                   </div>
                   <div class="col-md-10 col-sm-9">
                     <p>
-                      Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                      Donec sit amet erat elit, sed pellentesque odio. In enim
-                      ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                      accumsan dignissim rutrum.
+                      If food and accomodation is included by us, then the check-in time to the hotel
+                      will be provided on the way to the destination. Request to alter check-in time will
+                      be given at the time of enquiry
                     </p>
                   </div>
                 </div>
@@ -229,10 +245,8 @@
 
                   <div class="col-md-10 col-sm-9">
                     <p>
-                      Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                      Donec sit amet erat elit, sed pellentesque odio. In enim
-                      ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                      accumsan dignissim rutrum.
+                      If food and accomodation is included by us, then the check-out time will be mentioned
+                      when we reach the destination . Small variation to the checkout time is negotiable
                     </p>
                   </div>
                 </div>
@@ -261,14 +275,9 @@
                   <div class="col-md-10 col-sm-9">
                     <div>
                       <p>
-                        Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                        Donec sit amet erat elit, sed pellentesque odio. In enim
-                        ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                        accumsan dignissim rutrum. <br />
-                        Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                        Donec sit amet erat elit, sed pellentesque odio. In enim
-                        ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                        accumsan dignissim rutrum. <br />
+                        Any change in the regular terms and condition will be mentioned at the
+                        time of enquiry or in the worst case will be mentioned at destination, if
+                        anything wrong happens
                       </p>
                     </div>
                   </div>
@@ -286,14 +295,10 @@
                   <div class="col-md-10 col-sm-9">
                     <div>
                       <p>
-                        Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                        Donec sit amet erat elit, sed pellentesque odio. In enim
-                        ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                        accumsan dignissim rutrum. <br />
-                        Donec dapibus semper sem, ac ultrices sem sagittis ut.
-                        Donec sit amet erat elit, sed pellentesque odio. In enim
-                        ligula, euismod a adipiscing in, laoreet quis turpis. Ut
-                        accumsan dignissim rutrum. <br />
+                        Pre-Booking needs to be doen with a small amount so that we can
+                        confirm the booking. The rest of the package prize needs to paid 2 days before
+                        the journey <br>
+                        No extra fees will be collected during the journey
                       </p>
                     </div>
                   </div>
@@ -309,31 +314,19 @@
         <div class="inner">
           <section>
             <h2>Enquiry</h2>
-            <form method="post" action="#">
+            <form method="post" action="{% url 'enquiry' oid=dest.id %}">
               {% csrf_token %}
               <div class="fields">
                 <div class="field half">
-                  <input type="text" name="name" id="name" placeholder="Name" />
+                  {{form.name}}
                 </div>
 
                 <div class="field half">
-                  <input type="text" name="email" id="email" placeholder="Email" />
-                </div>
-
-                <div class="field half">
-                  <input type="text" name="phone" id="phone" placeholder="Phone" />
-                </div>
-
-                <div class="field quarter">
-                  <input type="text" placeholder="From 08.07.2020" />
-                </div>
-
-                <div class="field quarter">
-                  <input type="text" placeholder="To 08.07.2020" />
+                  {{form.number}}
                 </div>
 
                 <div class="field">
-                  <textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+                  {{form.message}}
                 </div>
 
                 <div class="field text-right">
@@ -352,26 +345,12 @@
             <h2>Contact Info</h2>
 
             <ul class="alt">
-              <li>
-                <span class="fa fa-envelope-o"></span>
-                <a href="#">contact@company.com</a>
-              </li>
-              <li><span class="fa fa-phone"></span> +1 333 4040 5566</li>
-              <li><span class="fa fa-mobile"></span> +1 333 4040 5566</li>
-              <li>
-                <span class="fa fa-map-pin"></span> 212 Barrington Court New
-                York, ABC 10001 United States of America
-              </li>
+              <li><span class="fa fa-envelope-o"></span> <a href="#">travelbug@gmail.com</a></li>
+              <li><span class="fa fa-phone"></span> +91 9998885554 </li>
+              <li><span class="fa fa-map-pin"></span>Building 07, Kalamassery, Near scms school of technology and
+                management</li>
             </ul>
-          </section>
 
-          <ul class="copyright">
-            <li>Copyright © 2020 Company Name</li>
-            <li>
-              Template by:
-              <a href="https://www.phpjabbers.com/">PHPJabbers.com</a>
-            </li>
-          </ul>
         </div>
       </footer>
     </div>

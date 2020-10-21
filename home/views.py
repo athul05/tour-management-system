@@ -48,3 +48,12 @@ def login(request):
 
 def signin(request):
     return redirect('join')
+
+def about(request):
+    return render(request, "about.html")
+
+def contact(request):
+    return render(request, "contact.html")
+
+def abcontact(request):
+    return redirect('/')

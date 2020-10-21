@@ -1,0 +1,77 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Payment</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'assets/css/checkout.css'%}">
+    </head>
+
+    <body>
+        <main class="page payment-page">
+            <section class="payment-form dark">
+                <div class="container">
+                    <div class="block-heading">
+                        <h2>Congrats! Your booking has been placed</h2>
+                        <p style="color: white;">Our agent will call you soon with further details . In the mean Time
+                            sit tight fellow adventurer
+                        </p>
+                    </div>
+
+                    <form action="usr">
+                        <div class="products">
+                            <h3 class="title">Booking Details</h3>
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">{{book.place}}</span>
+                                <p class="item-name">Pakage: </p>
+                            </div>
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">{{book.package}}</span>
+                                <p class="item-name">Transport : </p>
+                            </div>
+
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">{{book.date}}</span>
+                                <p class="item-name">Booking Date:</p>
+                            </div>
+
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">{{dest.duration}} Nights</span>
+                                <p class="item-name">Duration : </p>
+
+                            </div>
+
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">₹ {{book.package_prize}}</span>
+                                <p class="item-name">Package Amount : </p>
+
+                            </div>
+
+                            <div class="item" style='margin-bottom:2em;'>
+                                <span class="price">₹ 2000</span>
+                                <p class="item-name">Paid : </p>
+
+                            </div>
+
+                            <div class="total">Due Amount: <span class="price"> {{ book.package_prize|add:"-2000" }}
+                                </span></div>
+                        </div>
+                        <div class="card-details">
+                            <div class="form-group col-sm-12">
+                                <button type="submit" class="btn btn-primary btn-block">Return Home</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

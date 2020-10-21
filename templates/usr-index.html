@@ -13,6 +13,18 @@
     </head>
 
     <body class="is-preload">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            <div class="alert alert-success" id="msg" role="alert">
+                {{ message }}
+            </div>
+            </li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+        
         <!-- Wrapper -->
         <div id="wrapper">
 
@@ -21,7 +33,7 @@
                 <div class="inner">
 
                     <!-- Logo -->
-                    <a href="usr" class="logo">
+                    <a href="#" class="logo">
                         <span class="brand-logo"> <img src="{% static 'images/travellogo.png'%}" alt=""></span> <span class="title">Travel Bug</span>
                     </a>
 
@@ -39,22 +51,18 @@
             <nav id="menu">
                 <h2>Menu</h2>
                 <ul>
-                    <li><a href="" "" class="active">Home</a></li>
+                    <li><a href="#" class="active">Home</a></li>
 
-                    <li><a href="packages">Packages</a></li>
-
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="indexAlla ">Packages</a></li>
 
                     <li>
                         <a href="#" class="dropdown-toggle">About</a>
 
                         <ul>
                             <li><a href="about" >About Us</a></li>
-                            <li><a href="testimonial">Testimonials</a></li>
-                            <li><a href="terms.html">Terms</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact">Contact Us</a></li>
                     <li>
                         <a href="#" class="dropdown-toggle">Hey {{user.first_name}}</a>
 
@@ -75,15 +83,15 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{% static 'images/slider-image-1-1920x700.jpg' %}"
+                            <img class="d-block w-100" src="{% static 'images/home-banner1.jpg' %}"
                                 alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/slider-image-2-1920x700.jpg' %}"
+                            <img class="d-block w-100" src="{% static 'images/home-banner2.jpg' %}"
                                 alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{% static 'images/slider-image-3-1920x700.jpg' %}"
+                            <img class="d-block w-100" src="{% static 'images/home-banner3.jpg' %}"
                                 alt="Third slide">
                         </div>
                     </div>
@@ -104,10 +112,14 @@
                     <!-- About Us -->
                     <header id="inner">
                         <h1>Find you new place to visit!</h1>
-                        <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed
-                            cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat
-                            veroeros aliquam. Lorem ipsum dolor sit amet nullam
-                            dolore.
+                        <p>
+                            “TRAVELING – IT LEAVES YOU SPEECHLESS, THEN TURNS YOU INTO A STORYTELLER.” – IBN BATTUTA
+                        </p>
+
+                        <p>
+                            Explore india like you have never before with our professional travel guides and well renowned travels.. We have been
+                            giving the best get away experience for people all around India for the past 10 years. Let us make your trip a memorable
+                            one
                         </p>
                     </header>
 
@@ -133,7 +145,7 @@
                                         <i class="fa fa-calendar"></i> {{dest.season}} &nbsp;
                                         <i class="fa fa-cube"></i> {{dest.duration}} nights &nbsp;
                                         {% if dest.food %}
-                                        <i class="fa fa-plane"></i> Food and Accomodation Included
+                                        <i class="fa fa-bed"></i> Food and Accomodation Included
                                         {% else %}
                                         <i class="fa fa-plane"></i> No Food and Accomodation
                                         {% endif %}
@@ -182,23 +194,27 @@
             <footer id="footer">
                 <div class="inner">
                     <section>
-                        <h2>Contact Us</h2>
-                        <form method="post" action="contact">
+                        <h2>Feedback</h2>
+                        <form method="post" action="feedback">
+                            {% csrf_token %}
                             <div class="fields">
                                 <div class="field half">
-                                    <input type="text" name="name" id="name" placeholder="Name" />
+                                    {{feed.name}}
                                 </div>
 
                                 <div class="field half">
-                                    <input type="text" name="email" id="email" placeholder="Email" />
+                                    {{feed.email}}
                                 </div>
 
                                 <div class="field">
-                                    <input type="text" name="subject" id="subject" placeholder="Subject" />
+                                    {{feed.subject}}
                                 </div>
+                                <dir class="field half" >
+                                    {{feed.rating}}
 
+                                </dir>
                                 <div class="field">
-                                    <textarea name="message" id="message" rows="3" placeholder="Notes"></textarea>
+                                    {{feed.message}}
                                 </div>
 
                                 <div class="field text-right">
@@ -240,6 +256,13 @@
         </div>
 
         <!-- Scripts -->
+        <script>
+            setTimeout(function () {
+                if ($('#msg').length > 0) {
+                    $('#msg').remove();
+                }
+            }, 2000)
+        </script>
         <script src="{% static 'assets/js/jquery.min.js' %}"></script>
         <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
