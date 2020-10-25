@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Order history</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        <noscript>
+            <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                background: #2F303A;
+            }
+
+            .panel-order .row {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .panel-order .row:last-child {
+                border: 0px;
+            }
+
+            .panel-order .row .col-md-1 {
+                text-align: center;
+                padding-top: 15px;
+            }
+
+            .panel-order .row .col-md-1 img {
+                width: 50px;
+                max-height: 50px;
+            }
+
+            .panel-order .row .row {
+                border-bottom: 0;
+            }
+
+            .panel-order .row .col-md-11 {
+                border-left: 1px solid #ccc;
+            }
+
+            .panel-order .row .row .col-md-12 {
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+
+            .panel-order .row .row .col-md-12:last-child {
+                font-size: 11px;
+                color: #555;
+                background: #efefef;
+            }
+
+            .panel-order .btn-group {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .panel-order .panel-body {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+
+            .panel-order .panel-deading {
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id=wrapper >
+{% block content %}
+
+{% endblock %}
+        </div>
+
+        <link rel="stylesheet" type="text/css"
+            href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <div class="container bootdey">
+            <div class="panel panel-default panel-order">
+                <div class="panel-heading">
+                    <strong>Bookings history</strong>
+                </div>
+
+                <div class="panel-body">
+                    {% for book in books %}
+                    <div class="row">
+                        <div class="col-md-1"><img src="https://bootdey.com/img/Content/user_3.jpg"
+                                class="media-object img-thumbnail" /></div>
+                        <div class="col-md-11">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-right"><label
+                                            class="btn btn-success btn-xs glyphicon glyphicon-ok">Booked</label></div>
+                                    <span><strong>Destination: </strong></span> <span
+                                        class="label label-info">{{book.place}}</span><br />
+                                    Booking ID : {{book.id}} <br>
+                                    Package : {{book.package}} <br>
+                                    Prize : {{book.package_prize}} <br />
+                                    Date: {{book.date}} <br>
+                                    Booking Amount: 2000<br>
+                                    Due Amount: {{book.package_prize|add:"-2000"}} <br>
+
+                                </div>
+                                <div class="col-md-12">Order for {{book.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="panel-footer">Our travel agents will contact you shorty after your booking has been placed
+                </div>
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+
+
+        </script>
+    </body>
+
+</html>

@@ -7,21 +7,29 @@ admin.site.unregister(Group)
 admin.site.register(Destination)
 admin.site.register(Testimonial)
 admin.site.register(Blog)
-admin.site.register(Feedback)
+
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('username', 'id', 'name', 'subject', 'message', 'rating')
+    list_filter = ('username','rating')
+    list_display_links=None
+    list_per_page=5
+    actions=[export_to_excel_action]
+
+admin.site.register(Feedback, FeedbackAdmin)
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','place', 'package','date', 'package_prize' ,'number']
+    list_display = ['username','id', 'name','place', 'package','date', 'package_prize' ,'number']
     list_display_links= None
     list_per_page=5
-    list_filter=['place', 'package']
+    list_filter=['place', 'package','username']
     search_fields = ['place','package']
     actions=[export_to_excel_action]
 
 admin.site.register(Booking, BookingAdmin)
 
 class EnquirieAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','package','number','message']
-    list_filter=['package','name']
+    list_display = [ 'username' ,'id', 'name','package','number','message','urgent']
+    list_filter=['package','username','urgent']
     list_display_links=None
     list_per_page = 5
     actions=[export_to_excel_action]

@@ -110,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
 MATERIAL_ADMIN_SITE = {
     'HEADER':  'Travel Bug Administration',
     'TITLE': 'TravelBug',
-    'SHOW_THEMES':  True,
     'SHOW_COUNTS': True,
 }
 

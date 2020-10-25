@@ -50,8 +50,9 @@ def checkout(request, oid):
                 package_prize = dest.trav
             else:
                 package_prize = dest.bus
-            
+            username= request.user
             book= Booking(
+                username=username,
                 name=name,
                 number=number,
                 package=package,
@@ -60,6 +61,7 @@ def checkout(request, oid):
                 package_prize=package_prize
             )
             book.save()
+
             return render(request, "success.html", {'dest':dest, 'book':book})
         else:
             return render(request, "checkout.html", {'dest':dest, 'form':form})
@@ -90,10 +92,14 @@ def enquiry(request, oid):
             number = form.cleaned_data.get('number')
             message = form.cleaned_data.get('message')
             package = dest.name
+            username= request.user
+            urgent= request.POST.get('urgent',"No");
             enq = Enquirie(
+                username= username,
                 name = name,
                 number= number,
                 message= message,
+                urgent=urgent,
                 package = package
             )
             enq.save()
@@ -114,7 +120,9 @@ def feedback(request):
             subject = feed.cleaned_data.get('subject')
             message = feed.cleaned_data.get('message')
             rating = feed.cleaned_data.get('rating')
+            username = request.user
             feedbck = Feedback(
+                username=username,
                 name = name,
                 email= email,
                 subject= subject,
@@ -127,3 +135,9 @@ def feedback(request):
 
         else:
             return redirect('index')
+    
+def order_history(request):
+    uname=request.user
+    books=Booking.objects.filter(username=uname).all()
+
+    return render(request,'order_history.html',{'books':books})
